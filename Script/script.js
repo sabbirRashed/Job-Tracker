@@ -48,13 +48,20 @@ rejectedCount.innerText = getJobCount("rejected-cards") - 1;
 //---------toggling feature--------------->
 document.getElementById("all-tab")
     .addEventListener("click", function () {
+        const availableJobElement = document.getElementById("available-jobs");
+        const availableJobInAllTab = getJobCount("all-cards");
+        availableJobElement.innerText = availableJobInAllTab + " jobs";
 
-        handleToggle("all-cards")
-        tabStyleToggle("all-tab")
+        handleToggle("all-cards");
+        tabStyleToggle("all-tab");
     })
 
 document.getElementById("interview-tab")
     .addEventListener("click", function () {
+        const availableJobElement = document.getElementById("available-jobs");
+        const availableJobInInterviewTab = getJobCount("interview-cards") - 1;
+        const availableJobInAllTab = getJobCount("all-cards");
+        availableJobElement.innerText = availableJobInInterviewTab + " of " + availableJobInAllTab + " jobs";
 
         handleToggle("interview-cards");
         tabStyleToggle("interview-tab")
@@ -62,6 +69,10 @@ document.getElementById("interview-tab")
 
 document.getElementById("rejected-tab")
     .addEventListener("click", function () {
+        const availableJobElement = document.getElementById("available-jobs");
+        const availableJobInRejectedTab = getJobCount("rejected-cards") - 1;
+        const availableJobInAllTab = getJobCount("all-cards");
+        availableJobElement.innerText = availableJobInRejectedTab + " of " + availableJobInAllTab + " jobs";
 
         handleToggle("rejected-cards");
         tabStyleToggle("rejected-tab");
