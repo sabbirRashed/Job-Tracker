@@ -43,7 +43,10 @@ interviewCount.innerText = getJobCount("interview-cards") - 1;
 const rejectedCount = document.getElementById("rejected-count");
 rejectedCount.innerText = getJobCount("rejected-cards") - 1;
 
-
+// ---------Dinamically set available job count on initial state on the all tab------>
+const availableJobElement = document.getElementById("available-jobs");
+const availableJobInAllTab = getJobCount("all-cards");
+availableJobElement.innerText = availableJobInAllTab + " jobs";
 
 //---------toggling feature--------------->
 document.getElementById("all-tab")
