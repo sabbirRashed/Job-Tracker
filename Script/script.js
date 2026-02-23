@@ -1,7 +1,7 @@
 
 // ----------------interview and rejected cards information--------->
-const interviewCards = [];
-const rejectedCards = [];
+let interviewCards = [];
+let rejectedCards = [];
 
 
 // -----------Function to get cards length-------------->
@@ -10,11 +10,19 @@ function getJobCount(id) {
     return jobCount;
 }
 
+// ----------Function to get available cards---------------->
+function getAvailableCards(id, arr) {
+    const getGvailableJobElement = document.getElementById(id);
+    const availableJobInExpectedTab = arr.length;
+    const availableJobInAllTab = getJobCount("all-cards");
+    getGvailableJobElement.innerText = availableJobInExpectedTab + " of " + availableJobInAllTab + " jobs";
+}
+
 // ---------Function to toogle tab handle------------->
-function handleToggle(id) {
-    const cards = document.getElementsByClassName("cards");
-    for (const card of cards) {
-        card.classList.add("hidden")
+function handleToggle(id, className) {
+    const items = document.getElementsByClassName(className);
+    for (const item of items) {
+        item.classList.add("hidden")
     }
     document.getElementById(id)
         .classList.remove("hidden");
@@ -35,7 +43,7 @@ function tabStyleToggle(id) {
 
 }
 
-// --------Function to create card-------------->
+// --------Function to create job card-------------->
 function createJobCard(id, arr) {
     const interviewCardsSection = document.getElementById(id);
     interviewCardsSection.innerHTML = " ";
@@ -50,7 +58,7 @@ function createJobCard(id, arr) {
                         <p class="job-title text-[#64748b] mt-1">${obj.jobTitle}</p>
                     </div>
 
-                    <div class="w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -62,8 +70,8 @@ function createJobCard(id, arr) {
                 </ul>
 
                 <div>
-                    <button class="bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">${obj.statusBtn}</button>
-                    <p class="text-[#64748b] mt-2">${obj.jobDescription}</p>
+                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">${obj.statusBtn}</button>
+                    <p class="description text-[#64748b] mt-2">${obj.jobDescription}</p>
                 </div>
 
                 <div class="space-x-2 ">
@@ -79,19 +87,35 @@ function createJobCard(id, arr) {
 }
 
 
+// ----------Function to create no-job-card---------->
+function createNoAvailableCard(id) {
+    const CardsSection = document.getElementById(id);
+    CardsSection.innerHTML =
+        `
+            <div id="interview-no-job-card" class="card bg-white mt-5 py-27 justify-center items-center gap-5">
+                <div class="text-8xl text-[#7DA8FF]"><i class="fa-regular fa-file-lines"></i></div>
+
+                <div class="text-center">
+                    <p class="text-[1.5rem] font-bold text-[#002C5C]">No jobs available</p>
+                    <p class="text-[#64748b] mt-2">Check back soon for new job opportunities</p>
+                </div>
+            </div>
+       `
+}
+
 // ------------------Set total count-------------->
 const totalCount = document.getElementById("total-count");
 totalCount.innerText = getJobCount("all-cards");
 
 
 // ---------Dinamically set available job count on initial state on the all-tab------>
-const availableJobElement = document.getElementById("available-jobs");
+const availableJobElement = document.getElementById("available-jobs-all");
 const availableJobInAllTab = getJobCount("all-cards");
 availableJobElement.innerText = availableJobInAllTab + " jobs";
 
 
 // ---------Set card on the specific tab--------------->
-document.getElementById("all-cards")
+document.getElementById("main")
     .addEventListener("click", function (event) {
         const parentNode = event.target.parentNode.parentNode;
 
@@ -104,9 +128,9 @@ document.getElementById("all-cards")
             const statusBtn = parentNode.querySelector(".status-btn").innerText;
             const jobDescription = parentNode.querySelector(".description").innerText;
             const sallary = parentNode.querySelector(".sallary").innerText;
+
             parentNode.querySelector(".status-btn").innerText = "interview";
 
-            console.log(statusBtn)
             const jobInfo = {
                 companyName,
                 jobTitle,
@@ -123,14 +147,30 @@ document.getElementById("all-cards")
             }
 
             createJobCard("interview-cards", interviewCards);
+            rejectedCards = rejectedCards.filter(item => item.companyName !== jobInfo.companyName);
+            createJobCard("rejected-cards", rejectedCards);
 
             // -----------------Set interview count---------------->
             const interviewCount = document.getElementById("interview-count");
+            const rejectedCount = document.getElementById("rejected-count");
             interviewCount.innerText = getJobCount("interview-cards");
+            rejectedCount.innerText = getJobCount("rejected-cards");
+
+            // ----------available job cards count--
+            getAvailableCards("available-jobs-interview", interviewCards);
+            getAvailableCards("available-jobs-rejected", rejectedCards);
+
+            // --------show no jobs card----------
+            const count = getJobCount("rejected-cards");
+
+            if (count === 0) {
+                createNoAvailableCard("rejected-cards");
+            }
+
 
         }
 
-        if (event.target.classList.contains("rejected-btn")) {
+        else if (event.target.classList.contains("rejected-btn")) {
 
             const companyName = parentNode.querySelector(".company-name").innerText;
             const jobTitle = parentNode.querySelector(".job-title").innerText;
@@ -141,7 +181,6 @@ document.getElementById("all-cards")
             const sallary = parentNode.querySelector(".sallary").innerText;
             parentNode.querySelector(".status-btn").innerText = "rejected";
 
-            console.log(statusBtn)
             const jobInfo = {
                 companyName,
                 jobTitle,
@@ -158,47 +197,63 @@ document.getElementById("all-cards")
             }
 
             createJobCard("rejected-cards", rejectedCards);
+            interviewCards = interviewCards.filter(item => item.companyName !== jobInfo.companyName);
+            createJobCard("interview-cards", interviewCards);
 
             // -------------Set rejected count---------------->
             const rejectedCount = document.getElementById("rejected-count");
+            const interviewCount = document.getElementById("interview-count");
             rejectedCount.innerText = getJobCount("rejected-cards");
+            interviewCount.innerText = getJobCount("interview-cards");
+
+            // ----------available job cards count-------------
+            getAvailableCards("available-jobs-rejected", rejectedCards);
+            getAvailableCards("available-jobs-interview", interviewCards);
+
+            // --------show no jobs card----------
+            const count = getJobCount("interview-cards");
+
+            if (count === 0) {
+                createNoAvailableCard("interview-cards");
+            }
 
         }
 
+        else if(event.target.closest(".delete-btn")){
+            const card = event.target.closest(".cards");
+            console.log(card)
+            
+        }
+        
     })
+
 
 
 //---------toggling tab feature--------------->
 document.getElementById("all-tab")
     .addEventListener("click", function () {
-        const availableJobElement = document.getElementById("available-jobs");
+        const availableJobElement = document.getElementById("available-jobs-all");
         const availableJobInAllTab = getJobCount("all-cards");
         availableJobElement.innerText = availableJobInAllTab + " jobs";
 
-        handleToggle("all-cards");
+        handleToggle("all-cards", "cards");
+        handleToggle("available-jobs-all", "available-jobs");
         tabStyleToggle("all-tab");
-
     })
 
 document.getElementById("interview-tab")
     .addEventListener("click", function () {
-        const availableJobElement = document.getElementById("available-jobs");
-        const availableJobInInterviewTab = interviewCards.length;
-        const availableJobInAllTab = getJobCount("all-cards");
-        availableJobElement.innerText = availableJobInInterviewTab + " of " + availableJobInAllTab + " jobs";
 
-        handleToggle("interview-cards");
-        tabStyleToggle("interview-tab")
+        handleToggle("interview-cards", "cards");
+        handleToggle("available-jobs-interview", "available-jobs");
+        tabStyleToggle("interview-tab");
     })
 
 document.getElementById("rejected-tab")
     .addEventListener("click", function () {
-        const availableJobElement = document.getElementById("available-jobs");
-        const availableJobInRejectedTab = rejectedCards.length;
-        const availableJobInAllTab = getJobCount("all-cards");
-        availableJobElement.innerText = availableJobInRejectedTab + " of " + availableJobInAllTab + " jobs";
 
-        handleToggle("rejected-cards");
+        handleToggle("rejected-cards", "cards");
+        handleToggle("available-jobs-rejected", "available-jobs");
         tabStyleToggle("rejected-tab");
     })
 
