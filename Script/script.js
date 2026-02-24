@@ -250,27 +250,30 @@ document.getElementById("main")
                 return
             }
 
-            const card = event.target.closest(".card");
-            card.remove();
+            const isConfirmed = confirm("Are you sure you want to delete this card?");
+            if (isConfirmed) {
+                const card = event.target.closest(".card");
+                card.remove();
 
-            // ----------Change total cards count------------
-            const totalCount = document.getElementById("total-count");
-            totalCount.innerText = getJobCount("all-cards");
+                // ----------Change total cards count------------
+                const totalCount = document.getElementById("total-count");
+                totalCount.innerText = getJobCount("all-cards");
 
-            // ------------Change available total cards count-----
-            const availableJobElement = document.getElementById("available-jobs-all");
-            const availableJobInAllTab = getJobCount("all-cards");
-            availableJobElement.innerText = availableJobInAllTab + " jobs";
+                // ------------Change available total cards count-----
+                const availableJobElement = document.getElementById("available-jobs-all");
+                const availableJobInAllTab = getJobCount("all-cards");
+                availableJobElement.innerText = availableJobInAllTab + " jobs";
 
-            // ---------Change available interview and rejected cards----------
-            getAvailableCards2("available-jobs-interview", "interview-cards");
-            getAvailableCards2("available-jobs-rejected", "rejected-cards");
+                // ---------Change available interview and rejected cards----------
+                getAvailableCards2("available-jobs-interview", "interview-cards");
+                getAvailableCards2("available-jobs-rejected", "rejected-cards");
 
-            // --------show no jobs card----------
-            const count = getJobCount("all-cards");
+                // --------show no jobs card----------
+                const count = getJobCount("all-cards");
 
-            if (count === 0) {
-                createNoAvailableCard("all-cards");
+                if (count === 0) {
+                    createNoAvailableCard("all-cards");
+                }
             }
         }
 
@@ -281,21 +284,24 @@ document.getElementById("main")
                 return
             }
 
-            const card = event.target.closest(".card");
-            card.remove();
+            const isConfirmed = confirm("Are you sure you want to delete this card?");
+            if (isConfirmed) {
+                const card = event.target.closest(".card");
+                card.remove();
 
-            // ----------Change cards count------------
-            const interviewCount = document.getElementById("interview-count");
-            interviewCount.innerText = getJobCount("interview-cards");
+                // ----------Change cards count------------
+                const interviewCount = document.getElementById("interview-count");
+                interviewCount.innerText = getJobCount("interview-cards");
 
-            // ------------Change available cards count-----
-            getAvailableCards2("available-jobs-interview", "interview-cards");
+                // ------------Change available cards count-----
+                getAvailableCards2("available-jobs-interview", "interview-cards");
 
-            // --------show no jobs card----------
-            const count = getJobCount("interview-cards");
+                // --------show no jobs card----------
+                const count = getJobCount("interview-cards");
 
-            if (count === 0) {
-                createNoAvailableCard("interview-cards");
+                if (count === 0) {
+                    createNoAvailableCard("interview-cards");
+                }
             }
         }
 
@@ -306,21 +312,24 @@ document.getElementById("main")
                 return
             }
 
-            const card = event.target.closest(".card");
-            card.remove();
+            const isConfirmed = confirm("Are you sure you want to delete this card?");
+            if (isConfirmed) {
+                const card = event.target.closest(".card");
+                card.remove();
 
-            // ----------Change cards count------------
-            const rejectedCount = document.getElementById("rejected-count");
-            rejectedCount.innerText = getJobCount("rejected-cards");
+                // ----------Change cards count------------
+                const rejectedCount = document.getElementById("rejected-count");
+                rejectedCount.innerText = getJobCount("rejected-cards");
 
-            // ------------Change available cards count-----
-            getAvailableCards2("available-jobs-rejected", "rejected-cards");
+                // ------------Change available cards count-----
+                getAvailableCards2("available-jobs-rejected", "rejected-cards");
 
-            // --------show no jobs card----------
-            const count = getJobCount("rejected-cards");
+                // --------show no jobs card----------
+                const count = getJobCount("rejected-cards");
 
-            if (count === 0) {
-                createNoAvailableCard("rejected-cards");
+                if (count === 0) {
+                    createNoAvailableCard("rejected-cards");
+                }
             }
         }
 
