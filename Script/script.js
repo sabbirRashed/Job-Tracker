@@ -299,7 +299,6 @@ document.getElementById("main")
             }
         }
 
-
         else if (activeTab === "rejected-tab") {
             const deleteBtn = event.target.closest(".delete-btn");
 
