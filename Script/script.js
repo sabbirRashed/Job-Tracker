@@ -1,5 +1,7 @@
 
 // ----------------interview and rejected cards information--------->
+let allCards = document.querySelector(".card");
+console.log(allCards)
 let interviewCards = [];
 let rejectedCards = [];
 
@@ -14,6 +16,14 @@ function getJobCount(id) {
 function getAvailableCards(id, arr) {
     const getGvailableJobElement = document.getElementById(id);
     const availableJobInExpectedTab = arr.length;
+    const availableJobInAllTab = getJobCount("all-cards");
+    getGvailableJobElement.innerText = availableJobInExpectedTab + " of " + availableJobInAllTab + " jobs";
+}
+
+// -------------
+function getAvailableCards2(id1, id2) {
+    const getGvailableJobElement = document.getElementById(id1);
+    const availableJobInExpectedTab = getJobCount(id2);
     const availableJobInAllTab = getJobCount("all-cards");
     getGvailableJobElement.innerText = availableJobInExpectedTab + " of " + availableJobInAllTab + " jobs";
 }
@@ -41,6 +51,18 @@ function tabStyleToggle(id) {
     activeBtn.classList.remove("bg-white", "text-[#64748b]")
     activeBtn.classList.add("bg-[#3B82F6]", "text-white");
 
+}
+
+// --------------Function to get active tab------------->
+function getActiveTab(id) {
+    const btnTabs = document.getElementsByClassName("tab-btn");
+
+    for (const tab of btnTabs) {
+        tab.classList.remove("active-tab");
+    }
+
+    const activeTab = document.getElementById(id);
+    activeTab.classList.add("active-tab");
 }
 
 // --------Function to create job card-------------->
@@ -118,6 +140,7 @@ availableJobElement.innerText = availableJobInAllTab + " jobs";
 document.getElementById("main")
     .addEventListener("click", function (event) {
         const parentNode = event.target.parentNode.parentNode;
+        const activeTab = document.querySelector(".active-tab").id;
 
         if (event.target.classList.contains("interview-btn")) {
 
@@ -200,7 +223,7 @@ document.getElementById("main")
             interviewCards = interviewCards.filter(item => item.companyName !== jobInfo.companyName);
             createJobCard("interview-cards", interviewCards);
 
-            // -------------Set rejected count---------------->
+            // -------------Change cards count----------------
             const rejectedCount = document.getElementById("rejected-count");
             const interviewCount = document.getElementById("interview-count");
             rejectedCount.innerText = getJobCount("rejected-cards");
@@ -219,12 +242,86 @@ document.getElementById("main")
 
         }
 
-        else if(event.target.closest(".delete-btn")){
-            const card = event.target.closest(".cards");
-            console.log(card)
-            
+
+        else if (activeTab === "all-tab") {
+            const deleteBtn = event.target.closest(".delete-btn");
+
+            if (!deleteBtn) {
+                return
+            }
+
+            const card = event.target.closest(".card");
+            card.remove();
+
+            // ----------Change total cards count------------
+            const totalCount = document.getElementById("total-count");
+            totalCount.innerText = getJobCount("all-cards");
+
+            // ------------Change available cards count-----
+            const availableJobElement = document.getElementById("available-jobs-all");
+            const availableJobInAllTab = getJobCount("all-cards");
+            availableJobElement.innerText = availableJobInAllTab + " jobs";
+
+            // --------show no jobs card----------
+            const count = getJobCount("all-cards");
+
+            if (count === 0) {
+                createNoAvailableCard("all-cards");
+            }
         }
-        
+
+        else if (activeTab === "interview-tab") {
+            const deleteBtn = event.target.closest(".delete-btn");
+
+            if (!deleteBtn) {
+                return
+            }
+
+            const card = event.target.closest(".card");
+            card.remove();
+
+            // ----------Change cards count------------
+            const interviewCount = document.getElementById("interview-count");
+            interviewCount.innerText = getJobCount("interview-cards");
+
+            // ------------Change available cards count-----
+            getAvailableCards2("available-jobs-interview", "interview-cards");
+
+            // --------show no jobs card----------
+            const count = getJobCount("interview-cards");
+
+            if (count === 0) {
+                createNoAvailableCard("interview-cards");
+            }
+        }
+
+
+        else if (activeTab === "rejected-tab") {
+            const deleteBtn = event.target.closest(".delete-btn");
+
+            if (!deleteBtn) {
+                return
+            }
+
+            const card = event.target.closest(".card");
+            card.remove();
+
+            // ----------Change cards count------------
+            const rejectedCount = document.getElementById("rejected-count");
+            rejectedCount.innerText = getJobCount("rejected-cards");
+
+            // ------------Change available cards count-----
+            getAvailableCards2("available-jobs-rejected", "rejected-cards");
+
+            // --------show no jobs card----------
+            const count = getJobCount("rejected-cards");
+
+            if (count === 0) {
+                createNoAvailableCard("rejected-cards");
+            }
+        }
+
+
     })
 
 
@@ -239,6 +336,7 @@ document.getElementById("all-tab")
         handleToggle("all-cards", "cards");
         handleToggle("available-jobs-all", "available-jobs");
         tabStyleToggle("all-tab");
+        getActiveTab("all-tab");
     })
 
 document.getElementById("interview-tab")
@@ -247,6 +345,7 @@ document.getElementById("interview-tab")
         handleToggle("interview-cards", "cards");
         handleToggle("available-jobs-interview", "available-jobs");
         tabStyleToggle("interview-tab");
+        getActiveTab("interview-tab");
     })
 
 document.getElementById("rejected-tab")
@@ -255,6 +354,7 @@ document.getElementById("rejected-tab")
         handleToggle("rejected-cards", "cards");
         handleToggle("available-jobs-rejected", "available-jobs");
         tabStyleToggle("rejected-tab");
+        getActiveTab("rejected-tab");
     })
 
 
