@@ -179,7 +179,7 @@ document.getElementById("main")
             interviewCount.innerText = getJobCount("interview-cards");
             rejectedCount.innerText = getJobCount("rejected-cards");
 
-            // ----------available job cards count--
+            // ----------available job cards count----------
             getAvailableCards("available-jobs-interview", interviewCards);
             getAvailableCards("available-jobs-rejected", rejectedCards);
 
@@ -257,10 +257,14 @@ document.getElementById("main")
             const totalCount = document.getElementById("total-count");
             totalCount.innerText = getJobCount("all-cards");
 
-            // ------------Change available cards count-----
+            // ------------Change available total cards count-----
             const availableJobElement = document.getElementById("available-jobs-all");
             const availableJobInAllTab = getJobCount("all-cards");
             availableJobElement.innerText = availableJobInAllTab + " jobs";
+
+            // ---------Change available interview and rejected cards----------
+            getAvailableCards2("available-jobs-interview", "interview-cards");
+            getAvailableCards2("available-jobs-rejected", "rejected-cards");
 
             // --------show no jobs card----------
             const count = getJobCount("all-cards");
