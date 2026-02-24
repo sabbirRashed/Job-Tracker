@@ -32,17 +32,17 @@
         <h2 class="text-3xl font-bold text-[#002C5C]">Job Application Tracker</h2>
 
         <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="bg-white px-5 py-4 rounded-lg space-y-1.5 border border-gray-100">
+            <div class="bg-white px-5 py-4 rounded-lg space-y-1.5 border-2 border-gray-100 hover:border-gray-200">
                 <h3 class="font-medium text-[1rem] text-[#323B49]">Total</h3>
                 <p id="total-count" class="font-bold text-[1.5rem] text-[#002C5C]">0</p>
             </div>
 
-            <div class="bg-white px-5 py-4 rounded-lg space-y-1.5 border border-gray-100">
+            <div class="bg-white px-5 py-4 rounded-lg space-y-1.5 border-2 border-gray-100 hover:border-gray-200">
                 <h3 class="font-medium text-[1rem] text-[#323B49]">Interview</h3>
                 <p id="interview-count" class="font-bold text-[1.5rem] text-green-400">0</p>
             </div>
 
-            <div class="bg-white px-5 py-4 rounded-lg space-y-1.5 border border-gray-100">
+            <div class="bg-white px-5 py-4 rounded-lg space-y-1.5 border-2 border-gray-100 hover:border-gray-200">
                 <h3 class="font-medium text-[1rem] text-[#323B49]">Rejected</h3>
                 <p id="rejected-count" class="font-bold text-[1.5rem] text-red-400">0</p>
             </div>
@@ -75,14 +75,16 @@
 
         <!-- All jobs card -->
         <section id="all-cards" class="cards">
-            <div class="card p-6 mt-4 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">Mobile First Crop</h3>
                         <p class="job-title text-[#64748b] mt-1">React Native Developer</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -96,28 +98,31 @@
                 <div>
                     <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
-                    <p class="description text-[#64748b] mt-2">Build cross-platform mobile applications using React Native.
+                    <p class="description text-[#64748b] mt-2">Build cross-platform mobile applications using React
+                        Native.
                         Work
                         on products used by millions of
                         users worldwide.</p>
                 </div>
 
                 <div class="space-x-2 ">
-                    <button
-                        id="" class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
-                    <button
-                        id="" class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                    <button id=""
+                        class="interview-btn border-2 border-green-400 hover:bg-green-100 active:scale-95 transition-transform text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                    <button id=""
+                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
-            <div class="card p-6 mt-4 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">WebFlow Agency</h3>
                         <p class="job-title text-[#64748b] mt-1">Web Designer & Developer</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -138,20 +143,22 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 hover:bg-green-100 active:scale-95 transition-transform text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
-            <div class="card p-6 mt-4 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">DataViz Solutions</h3>
                         <p class="job-title text-[#64748b] mt-1">Data Visualization Specialist</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -172,20 +179,22 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 hover:bg-green-100 active:scale-95 transition-transform text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 hover:bg-red-100 active:scale-95 transition-transform text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
-            <div class="card p-6 mt-5 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-5 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">CloudFirst Inc</h3>
                         <p class="job-title text-[#64748b] mt-1">Backend Developer</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -199,26 +208,29 @@
                 <div>
                     <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
-                    <p class="description text-[#64748b] mt-2">Design and maintain scalable backend systems using Python and
+                    <p class="description text-[#64748b] mt-2">Design and maintain scalable backend systems using Python
+                        and
                         AWS. Work with modern DevOps practices and cloud infrastructure.</p>
                 </div>
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
-            <div class="card p-6 mt-4 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">Innovation Labs</h3>
                         <p class="job-title text-[#64748b] mt-1">UI/UX Engineer</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -232,27 +244,30 @@
                 <div>
                     <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
-                    <p class="description text-[#64748b] mt-2">Create beautiful and functional user interfaces for our suite
+                    <p class="description text-[#64748b] mt-2">Create beautiful and functional user interfaces for our
+                        suite
                         of
                         products. Strong design skills and frontend development expertise required.</p>
                 </div>
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
-            <div class="card p-6 mt-4 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">MegaCorp Solutions</h3>
                         <p class="job-title text-[#64748b] mt-1">JavaScript Developer</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -273,20 +288,22 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
-            <div class="card p-6 mt-4 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">StartupXYZ</h3>
                         <p class="job-title text-[#64748b] mt-1">Full Stack Engineer</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -300,27 +317,30 @@
                 <div>
                     <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
-                    <p class="description text-[#64748b] mt-2">Join our fast-growing startup and work on our core platform.
+                    <p class="description text-[#64748b] mt-2">Join our fast-growing startup and work on our core
+                        platform.
                         Experience with Node.js and React required. Great benefits and equity package included.
                     </p>
                 </div>
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
-            <div class="card p-6 mt-4 border border-gray-100 bg-white space-y-5">
+            <div
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">TechCorp Industries</h3>
                         <p class="job-title text-[#64748b] mt-1">Senior Frontend Developer</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div
+                        class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -334,7 +354,8 @@
                 <div>
                     <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
-                    <p class="description text-[#64748b] mt-2">We are looking for an experienced Frontend Developer to build
+                    <p class="description text-[#64748b] mt-2">We are looking for an experienced Frontend Developer to
+                        build
                         scalable web applications using React and TypeScript. You will work with a talented team
                         on
                         cutting-edge projects.</p>
@@ -342,9 +363,9 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
         </section>

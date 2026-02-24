@@ -1,7 +1,5 @@
 
 // ----------------interview and rejected cards information--------->
-let allCards = document.querySelector(".card");
-console.log(allCards)
 let interviewCards = [];
 let rejectedCards = [];
 
@@ -72,7 +70,7 @@ function createJobCard(id, arr) {
 
     for (const obj of arr) {
         const card = document.createElement("div");
-        card.className = "card p-6 mt-4 border border-gray-100 bg-white space-y-5";
+        card.className = "card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5";
         card.innerHTML = `
                  <div class="flex justify-between items-center">
                     <div>
@@ -80,7 +78,7 @@ function createJobCard(id, arr) {
                         <p class="job-title text-[#64748b] mt-1">${obj.jobTitle}</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-2 border-base-200">
+                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -148,11 +146,12 @@ document.getElementById("main")
             const jobTitle = parentNode.querySelector(".job-title").innerText;
             const workPlace = parentNode.querySelector(".work-place").innerText;
             const workType = parentNode.querySelector(".job-type").innerText;
-            const statusBtn = parentNode.querySelector(".status-btn").innerText;
+            const statusBtn = parentNode.querySelector(".status-btn");
             const jobDescription = parentNode.querySelector(".description").innerText;
             const sallary = parentNode.querySelector(".sallary").innerText;
 
             parentNode.querySelector(".status-btn").innerText = "interview";
+            statusBtn.style.backgroundColor = "#dcfce7";
 
             const jobInfo = {
                 companyName,
@@ -199,10 +198,11 @@ document.getElementById("main")
             const jobTitle = parentNode.querySelector(".job-title").innerText;
             const workPlace = parentNode.querySelector(".work-place").innerText;
             const workType = parentNode.querySelector(".job-type").innerText;
-            const statusBtn = parentNode.querySelector(".status-btn").innerText;
+            const statusBtn = parentNode.querySelector(".status-btn");
             const jobDescription = parentNode.querySelector(".description").innerText;
             const sallary = parentNode.querySelector(".sallary").innerText;
             parentNode.querySelector(".status-btn").innerText = "rejected";
+            statusBtn.style.backgroundColor = "#fee2e2";
 
             const jobInfo = {
                 companyName,
