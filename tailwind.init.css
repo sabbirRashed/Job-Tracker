@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.green-bg{
+    background-color: #86EFAC;
+}
+
+.red-bg{
+    background-color: #FCA5A5;
+}

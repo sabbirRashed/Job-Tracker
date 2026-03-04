@@ -70,7 +70,7 @@ function createJobCard(id, arr) {
 
     for (const obj of arr) {
         const card = document.createElement("div");
-        card.className = "card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5";
+        card.className = `card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-5 ${obj.statusBtn === "interview" ? "border-l-green-400 hover:border-l-green-400" : "border-l-red-400 hover:border-l-red-400"} bg-white space-y-5`;
         card.innerHTML = `
                  <div class="flex justify-between items-center">
                     <div>
@@ -90,15 +90,15 @@ function createJobCard(id, arr) {
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">${obj.statusBtn}</button>
+                    <button class="status-btn ${obj.statusBtn === "interview" ? "bg-green-300" : obj.statusBtn === "rejected" ? "bg-red-300" : 'bg-[#EEF4FF]'}  font-medium text-[#002C5C] px-3 py-2 rounded-md">${obj.statusBtn}</button>
                     <p class="description text-[#64748b] mt-2">${obj.jobDescription}</p>
                 </div>
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
                 `
         interviewCardsSection.appendChild(card);
@@ -139,6 +139,8 @@ document.getElementById("main")
     .addEventListener("click", function (event) {
         const parentNode = event.target.parentNode.parentNode;
         const activeTab = document.querySelector(".active-tab").id;
+        const card = event.target.closest(".card");
+        const allCards = Array.from(document.querySelectorAll(".card"));
 
         if (event.target.classList.contains("interview-btn")) {
 
@@ -151,7 +153,10 @@ document.getElementById("main")
             const sallary = parentNode.querySelector(".sallary").innerText;
 
             parentNode.querySelector(".status-btn").innerText = "interview";
-            statusBtn.style.backgroundColor = "#dcfce7";
+            statusBtn.style.backgroundColor = "#86efac"
+            card.classList.remove("border-l-gray-200", "border-l-red-400", "hover:border-l-red-400");
+            card.classList.add("border-l-green-400", "hover:border-l-green-400");
+
 
             const jobInfo = {
                 companyName,
@@ -189,6 +194,18 @@ document.getElementById("main")
                 createNoAvailableCard("rejected-cards");
             }
 
+            if (activeTab === "rejected-tab") {
+
+                const companyName = parentNode.querySelector(".company-name").innerText;
+                const findedCard = allCards.find(item => item.querySelector(".company-name").innerText === companyName);
+
+                findedCard.querySelector(".status-btn").innerText = "interview";
+                findedCard.querySelector(".status-btn").style.backgroundColor ="#86efac";
+                findedCard.classList.remove("border-l-gray-200", "border-l-red-400", "hover:border-l-red-400");
+                findedCard.classList.add("border-l-green-400", "hover:border-l-green-400");
+            }
+
+
 
         }
 
@@ -201,8 +218,11 @@ document.getElementById("main")
             const statusBtn = parentNode.querySelector(".status-btn");
             const jobDescription = parentNode.querySelector(".description").innerText;
             const sallary = parentNode.querySelector(".sallary").innerText;
+
             parentNode.querySelector(".status-btn").innerText = "rejected";
-            statusBtn.style.backgroundColor = "#fee2e2";
+            statusBtn.style.backgroundColor = "#FCA5A5";
+            card.classList.remove("border-l-gray-200", "border-l-green-400", "hover:border-l-green")
+            card.classList.add("border-l-red-400", "hover:border-l-red-400")
 
             const jobInfo = {
                 companyName,
@@ -240,6 +260,17 @@ document.getElementById("main")
                 createNoAvailableCard("interview-cards");
             }
 
+            if (activeTab === "interview-tab") {
+
+                const companyName = parentNode.querySelector(".company-name").innerText;
+                const findedCard = allCards.find(item => item.querySelector(".company-name").innerText === companyName);
+
+                findedCard.querySelector(".status-btn").innerText = "rejected";
+                findedCard.querySelector(".status-btn").style.backgroundColor = "#FCA5A5";
+                findedCard.classList.remove("border-l-gray-200", "border-l-green-400", "hover:border-l-green")
+                findedCard.classList.add("border-l-red-400", "hover:border-l-red-400")
+            }
+
         }
 
 
@@ -252,7 +283,7 @@ document.getElementById("main")
 
             const isConfirmed = confirm("Are you sure you want to delete this card?");
             if (isConfirmed) {
-                const card = event.target.closest(".card");
+
                 card.remove();
 
                 // ----------Change total cards count------------
@@ -265,8 +296,8 @@ document.getElementById("main")
                 availableJobElement.innerText = availableJobInAllTab + " jobs";
 
                 // ---------Change available interview and rejected cards----------
-                getAvailableCards2("available-jobs-interview", "interview-cards");
-                getAvailableCards2("available-jobs-rejected", "rejected-cards");
+                getAvailableCards("available-jobs-interview", interviewCards);
+                getAvailableCards("available-jobs-rejected", rejectedCards);
 
                 // --------show no jobs card----------
                 const count = getJobCount("all-cards");
@@ -286,8 +317,15 @@ document.getElementById("main")
 
             const isConfirmed = confirm("Are you sure you want to delete this card?");
             if (isConfirmed) {
-                const card = event.target.closest(".card");
                 card.remove();
+
+                // remove interview cards info from interviewCards arr
+                const cardsCompanyName = card.querySelector(".company-name").innerText;
+                const removedCardIndex = interviewCards.findIndex(item => item.companyName === cardsCompanyName);
+
+                if (removedCardIndex !== -1) {
+                    interviewCards.splice(removedCardIndex, 1);
+                }
 
                 // ----------Change cards count------------
                 const interviewCount = document.getElementById("interview-count");
@@ -314,8 +352,16 @@ document.getElementById("main")
 
             const isConfirmed = confirm("Are you sure you want to delete this card?");
             if (isConfirmed) {
-                const card = event.target.closest(".card");
+
                 card.remove();
+
+                // remove interview cards info from interviewCards arr
+                const cardsCompanyName = card.querySelector(".company-name").innerText;
+                const removedCardIndex = rejectedCards.findIndex(item => item.companyName === cardsCompanyName);
+
+                if (removedCardIndex !== -1) {
+                    rejectedCards.splice(removedCardIndex, 1);
+                }
 
                 // ----------Change cards count------------
                 const rejectedCount = document.getElementById("rejected-count");

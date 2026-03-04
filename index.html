@@ -56,8 +56,8 @@
                 <div class="flex justify-between items-center">
                     <h3 class="text-[1.5rem] text-[#002C5C] font-bold">Available Jobs</h3>
                     <p id="available-jobs-all" class="available-jobs text-[#64748B] font-bold">0 Jobs</p>
-                    <p id="available-jobs-interview" class="available-jobs text-[#64748B] font-bold hidden">0 Jobs</p>
-                    <p id="available-jobs-rejected" class="available-jobs text-[#64748B] font-bold hidden">0 Jobs</p>
+                    <p id="available-jobs-interview" class="available-jobs text-[#64748B] font-bold hidden">0 of 8 jobs</p>
+                    <p id="available-jobs-rejected" class="available-jobs text-[#64748B] font-bold hidden">0 of 8 jobs</p>
                 </div>
 
                 <!--Toggoling Buttons -->
@@ -76,7 +76,7 @@
         <!-- All jobs card -->
         <section id="all-cards" class="cards">
             <div
-                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">Mobile First Crop</h3>
@@ -96,7 +96,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">Build cross-platform mobile applications using React
                         Native.
@@ -107,14 +107,14 @@
 
                 <div class="space-x-2 ">
                     <button id=""
-                        class="interview-btn border-2 border-green-400 hover:bg-green-100 active:scale-95 transition-transform text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button id=""
-                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
             <div
-                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">WebFlow Agency</h3>
@@ -134,7 +134,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">Create stunning web experiences for high-profile clients.
                         Must
@@ -143,14 +143,14 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 hover:bg-green-100 active:scale-95 transition-transform text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
             <div
-                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">DataViz Solutions</h3>
@@ -170,7 +170,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">Transform complex data into compelling visualizations.
                         Required
@@ -179,14 +179,14 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 hover:bg-green-100 active:scale-95 transition-transform text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 hover:bg-red-100 active:scale-95 transition-transform text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 text-red-400 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
             <div
-                class="card p-6 mt-5 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-5 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">CloudFirst Inc</h3>
@@ -206,7 +206,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">Design and maintain scalable backend systems using Python
                         and
@@ -215,14 +215,14 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
             <div
-                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">Innovation Labs</h3>
@@ -242,7 +242,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">Create beautiful and functional user interfaces for our
                         suite
@@ -252,14 +252,14 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
             <div
-                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">MegaCorp Solutions</h3>
@@ -279,7 +279,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">Build enterprise applications with JavaScript and modern
                         frameworks. We offer competitive compensation, health insurance, and professional
@@ -288,14 +288,14 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
             <div
-                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">StartupXYZ</h3>
@@ -315,7 +315,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">Join our fast-growing startup and work on our core
                         platform.
@@ -325,14 +325,14 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
 
             <div
-                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 border-l-4 border-l-gray-200 bg-white space-y-5">
+                class="card p-6 mt-4 border-2 border-gray-100 hover:border-gray-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 border-l-4 border-l-gray-200 bg-white space-y-5">
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="company-name text-[1.2rem] text-[#002C5C] font-bold">TechCorp Industries</h3>
@@ -352,7 +352,7 @@
                 </ul>
 
                 <div>
-                    <button class="status-btn bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
+                    <button class="status-btn status-rejected-section bg-[#EEF4FF]  font-medium text-[#002C5C] px-3 py-2 rounded-md">NOT
                         APPLIED</button>
                     <p class="description text-[#64748b] mt-2">We are looking for an experienced Frontend Developer to
                         build
@@ -363,9 +363,9 @@
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 text-green-400 hover:bg-green-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 text-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 hover:bg-red-100 active:scale-95 transition-transform font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
                 </div>
             </div>
         </section>
