@@ -78,7 +78,7 @@ function createJobCard(id, arr) {
                         <p class="job-title text-[#64748b] mt-1">${obj.jobTitle}</p>
                     </div>
 
-                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300">
+                    <div class="delete-btn w-8 h-8 rounded-full flex justify-center items-center border-3 border-base-300 hover:bg-red-200 hover:border-red-300 cursor-pointer">
                         <span class="text-[#64748b] text-[0.8rem]"><i class="fa-solid fa-trash-can"></i></span>
                     </div>
                 </div>
@@ -96,9 +96,9 @@ function createJobCard(id, arr) {
 
                 <div class="space-x-2 ">
                     <button
-                        class="interview-btn border-2 border-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 text-green-400 font-medium px-3 py-2 rounded-md">INTERVIEW</button>
+                        class="interview-btn border-2 border-green-400 bg-transparent hover:bg-green-200 active:scale-95 transition-all duration-100 text-green-400 font-medium px-3 py-2 rounded-md cursor-pointer">INTERVIEW</button>
                     <button
-                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md">REJECTED</button>
+                        class="rejected-btn border-2 border-red-400 text-red-400 bg-transparent hover:bg-red-200 active:scale-95 transition-all duration-100 font-medium px-3 py-2 rounded-md cursor-pointer">REJECTED</button>
                 </div>
                 `
         interviewCardsSection.appendChild(card);
